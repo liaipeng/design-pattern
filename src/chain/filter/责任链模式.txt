@@ -1,0 +1,14 @@
+责任链模式定义如下：
+使多个对象都有机会处理请求， 从而避免了请求的发送者和接受者之间的耦合关系。 将这些对象连成一条链， 并沿着这条链传递该请求， 直到有对象处理它为止。 
+
+
+马老师的课中，责任链模式的应用场景是过滤器的实现。其实也就是Tomcat里Servlet以及Struts2中Interceptor的实现方法。
+
+代码：
+Filter是过滤器的接口，FaceFilter、HTMLFilter等是具体的过滤器，实现不同的功能。
+FilterChian是过滤器链，里面维护一个过滤器集合，doFilter方法遍历集合中的过滤器，调用每个过滤器的doFilter方法。
+MsgProcessor是信息处理器，维护一个过滤器链，可以调用过滤器链的doFilter方法。实际上这个类有点多余。
+Main是程序入口，定义一个字符串，创建一个MsgProcessor，往里传入该字符串，set过滤器链，执行doFilter，对字符串进行过滤。
+
+进阶：
+模拟request请求：过滤器既处理过去的消息，也处理返回的消息。见chain.webFilter

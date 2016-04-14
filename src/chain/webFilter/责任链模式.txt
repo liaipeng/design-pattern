@@ -1,0 +1,15 @@
+进阶：
+模拟request请求：过滤器既处理过去的消息，也处理返回的消息。
+
+大概是一个这样的过程：
+
+client	->	|   ->	|   ->	|  ->  server
+		<-	|	<-	|	<-	|  <-
+
+所以就涉及到，发过去的时候是正序调用过滤器，返回来的时候得逆序调用过滤器了。所以就涉及到一些涉及。
+
+代码：
+Filter接口的doFilter方法，传人Request，Response。因为要逆序调用过滤器，所以这边同时还传入了FilterChain。
+HTMLFilter和SensitiveFilter，处理Request和Response，同时取得FilterChain，调用下一个过滤器
+
+具体的执行过程，在Main类中，fc.doFilter处设置断点，用Debug查看。

@@ -1,0 +1,33 @@
+装饰模式
+
+装饰模式（ Decorator Pattern） 是一种比较常见的模式， 其定义如下： Attach additional
+responsibilities to an object dynamically keeping the same interface.Decorators provide a flexible
+alternative to subclassing for extending functionality.（ 动态地给一个对象添加一些额外的职责。
+就增加功能来说， 装饰模式相比生成子类更为灵活。 ）
+
+场景：
+1.	成绩单SchoolReport抽象类，有两个方法，回报成绩，和给父亲签字
+2.	FouthGradeSchoolReport，具体成绩单，四年级的成绩单，继承于SchoolReport，成绩很差，也要给父亲签字
+3.	因为成绩很差，如果直接给父亲看，父亲不会签字的，怎么办呢？对成绩单进行装饰。
+	比如说，告诉成绩给父亲之前，先跟父亲说，最高分也才多少多少分，而且，这个分数在全班的排名其实进步。
+	怎么实现呢？直接定义一个新的类，对FouthGradeSchoolReport进行继承，然后重写report方法，在前面添加最高分和排名的报告。
+4.	表面上看起来是没问题的，但是如果父亲他只听排名或者只听最高分就签字了，那我们的类就不够灵活了。
+	而且，如果要增加新的装饰，那么将会类爆炸。
+5.	所以，最好的解决方式，是用聚合代替继承。新建一个Decorator装饰类继承于SchoolReport，并且维护一个SchoolReport私有对象
+	之后，需要新的装饰功能时，只需要定义新的装饰类继承Decorator，重写Decorator的report方法即可，具体见代码。
+6.	之后，Father在看成绩单的时候，不要给他看原始FouthGradeSchoolReport成绩单，
+	而是根据具体情况，给他看经过装饰的具体的HighScoreDecorator或者SortDecorator即可。
+	
+	看到这边，发现装饰模式无论是需求还是思想，都与代理模式非常相似。
+
+
+优点：
+● 装饰类和被装饰类可以独立发展， 而不会相互耦合。 
+换句话说， Component类无须知道Decorator类， Decorator类是从外部来扩展Component类的功能， 而Decorator也不用知道具体的构件。
+● 装饰模式是继承关系的一个替代方案。 
+我们看装饰类Decorator， 不管装饰多少层， 返回的对象还是Component， 实现的还是is-a的关系。
+● 装饰模式可以动态地扩展一个实现类的功能， 这不需要多说， 装饰模式的定义就是如此。
+
+缺点：
+对于装饰模式记住一点就足够了： 多层的装饰是比较复杂的。 为什么会复杂呢？ 
+你想想看， 就像剥洋葱一样， 你剥到了最后才发现是最里层的装饰出现了问题， 想象一下工作量吧， 因此， 尽量减少装饰类的数量， 以便降低系统的复杂度。

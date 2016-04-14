@@ -1,0 +1,8 @@
+模拟Spring的bean工厂，IOC，控制反转，面向接口编程
+
+1. 老样子，Car和Train都实现Moveable接口，代表两种交通工具。
+2. 创建BeanFactory接口，有方法Object getBean(String id);
+3. ClassPathXmlApplicationContext是BeanFactory的实现类，读取XML配置文件，把bean装进Map类型的container容器中
+4. 然后在Main中，将不再需要修改代码，直接在配置文件中修改类，即可使用不同的交通工具
+
+这就是IOC，代码都是面向接口编程，而真正的实现选择则是在配置文件中完成。

@@ -1,0 +1,10 @@
+观察者模式：
+
+实际上，JDK中提供了:java.util.Observable实现类和java.util.Observer接口， 也就是说
+我们上面写的那个例子中的Observable接口可以改换成java.util.Observale实现类了
+
+此时，无需再定义Observer接口，Subject也不用再定义addObserver，notifyObservers等抽象方法，
+直接用java.util.Observable的父类方法
+
+具体差别对比代码
+

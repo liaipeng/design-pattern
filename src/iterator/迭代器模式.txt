@@ -1,0 +1,17 @@
+定义：
+它提供一种方法访问一个容器对象中各个元素， 而又不需暴露该对象的内部细节。
+
+
+
+1. 首先模拟实现了一个可以动态添加元素的ArrayList和一个LinkedList
+
+2. 第2步，考虑容器的可替换性，于是让ArrayList和LinkedList实现一个Collection接口，就可以面向接口编程了。
+
+3. 第3步，实现对容器的遍历。
+	这个时候问题就出现了。因为不同的容器遍历的方式不统一。例如数组和链表的遍历方式就不一样。需要找到一种统一的遍历方式。
+	此时就引入了Iterator。
+	
+	首先，新建一个Iterator接口，定义了hasNext和next方法
+	其次，在Collection接口中添加一个获取Iterator对象的方法。
+	最后，ArrayList和LinkedList根据自己数据结构的不同实现具体的Iterator，要遍历容器时，只需要获取其Iterator即可
+

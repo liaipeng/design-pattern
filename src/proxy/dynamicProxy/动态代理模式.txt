@@ -1,0 +1,9 @@
+这个包的内容是，模拟JDK的动态代理，设计Proxy、InvocationHandler，实现代理类的动态生成。
+
+1. Tank实现Moveable接口。
+2. 创建InvocationHandler接口，内有invoke(Object o, Method m)方法。（传入对象o，调用对象o的方法m）。
+3. TimeHandler的作用是加上时间的处理，实现InvocationHandler接口。
+4. Proxy的作用是根据传入的接口和InvocationHandler动态生成需要的代理类。
+5. 如此一来，就可以在Client类中，使用Proxy的newProxyInstance方法，动态生成想要的代理类了。
+
+另一个例子见Proxy.dynamicProxyTest

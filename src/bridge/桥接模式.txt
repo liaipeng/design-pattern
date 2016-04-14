@@ -1,0 +1,25 @@
+桥梁模式（ Bridge Pattern） 也叫做桥接模式， 是一个比较简单的模式， 其定义如下：
+Decouple an abstraction from its implementation so that the two can vary independently.（ 将抽象和实现解耦， 使得两者可以独立地变化。 ）
+
+
+男孩追MM
+
+追MM的手段是送礼物。而礼物可以是戒指，可以是鲜花。同时，礼物也分温暖型的礼物，和狂野型的礼物。
+用代码实现，就是有一个抽象类Gift，Ring和Flower继承于Gift；WarmGift和WildGift也继承于Gift。
+
+这时候问题就来了，Gift的子类，分为两个维度，是Ring还是Flower？是WarmGift还是WildGift？
+最关键的是，这两个维度还有交叉的。也就是说，Ring可以有Warm类型的Ring，也可以有Wild类型的Ring。
+这时候怎么办？如果只是简单的让Ring继承于Warm或者Wild，那类会越来越多，无穷无尽！
+
+解决办法：用聚合代替继承。
+
+也就是桥接模式。用于对两个维度进行排列组合。
+
+具体地，新建一个GiftImpl抽象类，让Ring和Flower等具体的礼物改为继承GiftImpl。
+然后，让Gift抽象类持有GiftImpl。
+
+之后，就可以方便的使用两着的组合。
+例如，需要一个温暖类型的Ring：
+Gift g = new WarmGift(new Ring());
+一个温暖类型的Flower：
+Gift g = new WarmGift(new Flower());

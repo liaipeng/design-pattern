@@ -1,0 +1,9 @@
+可以扩展产品
+
+思考过程：
+1. 老张开车去东北。所以需要有一个Car类，有run方法。让老王可以new Car。
+2. 老张也可以开飞机去东北。所以又新建了一个Plane类，也是run方法。
+3. 这个时候，在Main里面，要方便修改代码，就要用到多态，所以抽象出Car和Plane的父类，新建一个Moveable接口，有run方法，Car和Plane去实现它。
+4. 此时，不想让老张直接能够控制Car和Plane的生产，所以新建CarFactory和PlaneFactory，把他们的生产交给各自的工厂类。
+5. 随之又发现问题，这样的话又出现修改代码不方便，所以要抽象出CarFactory和PlaneFactory的父类，VehicleFactory。
+6. 此时，一个简单的工厂模式便设计完成。

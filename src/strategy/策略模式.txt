@@ -1,0 +1,18 @@
+定义：
+定义一组算法， 将每个算法都封装起来， 并且使它们之间可以互换。
+
+
+
+设计过程：
+1. DataSorter类实现了冒泡排序，可以传入int类型数组进行排序
+2. 但是新建一个Cat类就无法进行排序了。此时，让Cat实现Comparable接口，重写Comparable接口的compareTo方法，按照Cat的体重进行排序。
+        修改DataSorter中的sort方法，参数变成Comparable类型的数组，比较的方法也替换成了compareTo方法。
+        此时，只要一个类实现了Comparable接口并重写了compareTo方法，那么就可以调用sort方法进行比较。
+3. 接着问题又来了，如果我不想用Cat的体重进行排序了，想用高度来排序呢？难道要再修改Cat类里的compareTo方法？那就太麻烦了。
+        此时，策略模式的思想就出现了：把比较的方法交给比较器，也就是不同的策略来实现。
+4. 定义一个Comparator接口，其中有compare方法。可以根据需求，创建不同的比较器，比如CatHeightComparator和CatWeightComparator，实现Comparator接口
+        这样一来，只需要在每一个要比较的类中维护一个Comparator对象（用户可以根据需要set想要的策略）。
+   compareTo方法直接调用该Comparator对象的compare方法即可
+   
+   
+这就是策略模式。定义一系列的策略方法，实现同一个接口。要使用方法的类直接调用接口的方法，具体的实现策略可以根据需要随时替换，而不用修改源码

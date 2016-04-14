@@ -1,0 +1,8 @@
+
+1. UserMgrImpl实现UserMgr接口
+2. TransactionHandler实现InvocationHandler接口，给被代理类加日志。
+3. Client中，创建要被代理的UserMgrImpl对象，传入TransactionHandler中，创建TransactionHandler对象
+4. 调用Proxy的newProxyInstance方法，传入要被代理的接口类Handler对象，生成代理类
+5. 使用代理类
+
+proxy.dynamicProxyTest2包，使用JDK提供的接口来动态生成代理类。

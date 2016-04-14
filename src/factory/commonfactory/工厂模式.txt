@@ -1,0 +1,6 @@
+工厂模式
+定义一个用于创建对象的接口， 让子类决定实例化哪一个类。 工厂方法使一个类的实例化延迟到其子类。
+
+1. 抽象交通工具工厂 AbstractVehicleFactory。（运用到了泛型的控制  T extends Moveable）
+2. 具体交通工具工厂VehicleFactory，实现AbstractVehicleFactory。通过传入的类型来创建实实例：Class.forName(clazz.getName()).newInstance();
+3. Main中调用createVehicle方法时，只需传入Car.class或者 Plane.class即可生产不同类型的交通工具。

@@ -1,0 +1,8 @@
+定义：为创建一组相关或相互依赖的对象提供一个接口， 而且无须指定它们的具体类。
+
+定制系列产品
+
+包中有两个工厂，分别是DefaultFactory、MagicFactory。这两个工厂都继承于抽象类AbstractFactory。
+每一个Factory中都定义了交通工具（继承Vehicle抽象类）、武器（继承Weapon抽象类）以及食物（继承Food抽象类）。
+
+如此一来，在Main中，只要在AbstractFactory f = new DefaultFactory();选择使用哪一个工厂，那么一系列的产品都会同意替换

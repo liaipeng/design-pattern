@@ -5,4 +5,4 @@
 4. 调用Proxy的newProxyInstance方法，传入要被代理的接口类Handler对象，生成代理类
 5. 使用代理类
 
-proxy.dynamicProxyTest2包，使用JDK提供的接口来动态生成代理类。
+proxy.dynamicProxyByJDK包，使用JDK提供的接口来动态生成代理类。

@@ -1,0 +1,8 @@
+本例中使用的是JDK的Proxy类
+
+1. 抽象游戏玩家接口IGamePlayer，有login, killBoss, upgrade方法。
+2. GamePlayer实现IGamePlayer接口
+3. GamePlayIH实现JDK提供的InvocationHandler类
+4. 在Client中，为玩家申请一个代理，这个代理类可以根据需求，实现不同的任务，比如说，加上游戏登陆日志，比如说计费等等等。这就是传说中的AOP。
+
+proxy.dynamicProxyByCglib包，使用Cglib提供的接口来动态生成代理类。

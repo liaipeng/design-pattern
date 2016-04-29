@@ -1,4 +1,4 @@
-package proxy.dynamicProxyTest2;
+package proxy.dynamicProxyByJDK;
 
 /**
  * 游戏玩家接口

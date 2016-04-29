@@ -1,4 +1,4 @@
-package proxy.dynamicProxyTest2;
+package proxy.dynamicProxyByJDK;
 
 public class GamePlayer implements IGamePlayer{
 	private String name = "";

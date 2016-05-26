@@ -10,7 +10,6 @@ public class Client {
 		
 		ClassLoader cl = player.getClass().getClassLoader();
 		
-//		IGamePlayer proxy = (IGamePlayer)Proxy.newProxyInstance(cl, new Class[]{IGamePlayer.class}, handler);
 		IGamePlayer proxy = (IGamePlayer)Proxy.newProxyInstance(cl, player.getClass().getInterfaces(), handler);
 		
 		proxy.login("ZhangSan", "123");

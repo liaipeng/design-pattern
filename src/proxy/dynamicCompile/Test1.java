@@ -67,8 +67,7 @@ public class Test1 {
 		// 若直接使用 c.newInstance()，默认是使用其没有参数的构造方法，可是类中没有参数为空的构造方法。所以要用以下方法。
 		Constructor ctr = c.getConstructor(Moveable.class); // 获取参数类型为Moveable的构造方法
 		Moveable m = (Moveable)ctr.newInstance(new Tank()); // 传入参数 new Tank()，生成m对象
-		m.move(); // 调用访法
-		
+		m.move(); // 调用move方法
 	}
 }
 

@@ -3,7 +3,7 @@ package iterator;
 public class ArrayList implements Collection {
 	private Object[] objs = new Object[10];
 	private int index = 0;
-	
+	@Override
 	public void add(Object obj) {
 		if (index == objs.length) {
 			Object[] newObjs = new Object[objs.length * 2]; // 实际上不能以这样的步长增加
@@ -13,7 +13,7 @@ public class ArrayList implements Collection {
 		objs[index] = obj;
 		index ++;
 	}
-	
+	@Override
 	public int size() {
 		return index;
 	}

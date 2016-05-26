@@ -23,18 +23,6 @@ public class Proxy {
 		String rt = "\r\n";
 		
 		Method[] methods = infce.getMethods();
-		/*
-		for(Method m : methods) {
-			methodStr += "@Override" + rt + 
-						 "public void " + m.getName() + "() {" + rt +
-						 	"   long start = System.currentTimeMillis();" + rt +
-							"   System.out.println(\"starttime:\" + start);" + rt +
-							"   t." + m.getName() + "();" + rt +
-							"   long end = System.currentTimeMillis();" + rt +
-							"   System.out.println(\"time:\" + (end-start));" + rt +
-						 "}";
-		}
-		*/
 		for(Method m : methods) {
 			methodStr += "@Override" + rt + 
 						 "public void " + m.getName() + "() {" + rt +
